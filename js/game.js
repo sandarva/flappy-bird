@@ -13,6 +13,7 @@ function animate(){
             bird.x + bird.width >= pipe.x &&
             (bird.y <= pipe.height || bird.y + bird.height >= pipe.height + pipe.gapHeight) 
         ) {
+            hitAudio.play()
             gameOver()
         }
 
@@ -20,6 +21,8 @@ function animate(){
         if (pipe.x + pipe.width < bird.x && !pipe.passed) {
             score += 1
             pipe.passed = true
+            scoreAudio.play()
+            scoreAudio.currentTime = 0
         }
         
         // remove the pipe if it is outside the screen(canvas)
@@ -32,11 +35,13 @@ function animate(){
 
     // if bird goes below the screen
     if(bird.y > canvas.height){
+        gameOverAudio.play()
         gameOver()
     }
 
     // if bird goes above the screen
     if(bird.y + bird.height < 0){
+        hitAudio.play()
         gameOver()
     }
 

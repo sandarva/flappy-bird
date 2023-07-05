@@ -42,12 +42,12 @@ class Bird{
         this.jumpDisplacement = -8
 
         this.birdImg = new Image();
-        this.birdImg.src = "./assets/bluebird-midflap.png";
+        this.birdImg.src = "./assets/images/bluebird-midflap.png";
         this.birdImg.onload = () => {
             this.draw();
         };
         this.jumpImg = new Image();
-        this.jumpImg.src = "./assets/bluebird-upflap.png";
+        this.jumpImg.src = "./assets/images/bluebird-upflap.png";
     }
     
     // method to draw the bird in canvas
@@ -59,6 +59,9 @@ class Bird{
     jump() {
         this.velocity = this.jumpDisplacement;
         this.draw()
+        flyAudio.volume = 0.5
+        flyAudio.play()
+        flyAudio.currentTime = 0
     }
 
     //method to update the bird on some event in canvas

@@ -1,21 +1,21 @@
 // background of the canvas
 const backgroundImage = new Image();
-backgroundImage.src = "./assets/background-day.png";
+backgroundImage.src = "./assets/images/background-day.png";
 backgroundImage.onload = () => {
     context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 };
 
 // pipes upward image
 const pipeImage = new Image();
-pipeImage.src = "./assets/pipe-green-upward.png";
+pipeImage.src = "./assets/images/pipe-green-upward.png";
 
 //pipes downward image
 const invertedPipeImage = new Image()
-invertedPipeImage.src = "./assets/pipe-green-inverted.png";
+invertedPipeImage.src = "./assets/images/pipe-green-inverted.png";
 
 //gameover image
 const gameOverImage = new Image()
-gameOverImage.src = "./assets/gameover.png";
+gameOverImage.src = "./assets/images/gameover.png";
 
 // Numbers image
 const numbers = {
@@ -32,12 +32,12 @@ const numbers = {
 }
 
 for(let i = 0; i < 10; i++){
-    numbers[i].src = `./assets/${i}.png`
+    numbers[i].src = `./assets/images/${i}.png`
 }
 
 // start image
 const startImage = new Image()
-startImage.src = './assets/message.png'
+startImage.src = './assets/images/message.png'
 startImage.onload = () => {
     context.drawImage(
         startImage, 
