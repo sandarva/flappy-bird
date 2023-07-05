@@ -12,3 +12,7 @@ pipeImage.src = "./assets/pipe-green-upward.png";
 //pipes downward image
 const invertedPipeImage = new Image()
 invertedPipeImage.src = "./assets/pipe-green-inverted.png";
+
+//gameover image
+const gameOverImage = new Image()
+gameOverImage.src = "./assets/gameover.png";

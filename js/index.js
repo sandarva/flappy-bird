@@ -16,6 +16,21 @@ function animate(){
     // move the pipe to the left
     pipes.forEach((pipe, pipeIndex) => {
         pipe.update()
+
+        // Check for collision with pipes
+        if (
+            bird.x <= pipe.x + pipe.width &&
+            bird.x + bird.width >= pipe.x &&
+            (bird.y <= pipe.height || bird.y + bird.height >= pipe.height + pipe.gapHeight) 
+        ) {
+            gameOver(score)
+        }
+
+        // Check if the pipe has passed the bird
+        if (pipe.x + pipe.width < bird.x && !pipe.passed) {
+            score += 1
+            pipe.passed = true
+        }
         
         // remove the pipe if it is outside the screen(canvas)
         if(pipe.x + pipe.width < 0){
@@ -27,20 +42,16 @@ function animate(){
 
     // if bird goes below the screen
     if(bird.y > canvas.height){
-        cancelAnimationFrame(animationId)
-        clearInterval(intervalId)
-        console.log("Game over: below screen");
+        gameOver(score)
     }
 
     // if bird goes above the screen
     if(bird.y + bird.height < 0){
-        cancelAnimationFrame(animationId)
-        clearInterval(intervalId)
-        console.log("Game over: above screen");
+        gameOver(score)
     }
 
     // show score in the screen
-    displayScore(score)
+    displayScore(15, 45, score)
 
     // repaint the bird
     bird.update()
@@ -58,9 +69,7 @@ addEventListener('keyup', (event) => {
 // score
 // let gravity = 10
 let score = 0
-
-context.fillStyle = "skyblue"
-context.fillRect(0, 0, canvas.width, canvas.height)
+context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
 // The initial x and y position of the bird
 const birdYPos = canvas.height / 2

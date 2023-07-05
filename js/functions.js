@@ -15,9 +15,18 @@ function generatePipes(){
 }
 
 // Function to display the score
-function displayScore(score){
+function displayScore(x, y, score){
     context.fillStyle = "white";
     context.font="45px sans-serif";
-    context.fillText(score, 15, 45);
+    context.fillText(score, x, y);
+}
 
+// Function to display the gameover screen with score
+function gameOver(score){
+    context.drawImage(gameOverImage, canvas.width / 2 - gameOverImage.width / 2, canvas.height / 2 - 100, gameOverImage.width, gameOverImage.height);
+    cancelAnimationFrame(animationId)
+    clearInterval(intervalId)
+    context.textAlign="center"
+    displayScore(canvas.width/ 2, canvas.height / 2, score)
+    console.log(score);
 }

@@ -10,6 +10,8 @@ class Pipe{
         this.gapHeight = gapHeight
         this.color = color
         this.speed = 3
+
+        this.passed = false
     }
 
     // Function to draw pipes upward and downward in canvas
@@ -50,7 +52,6 @@ class Bird{
     
     // method to draw the bird in canvas
     draw(){
-        // context.fillStyle = this.color 
         const imageToDraw = this.velocity < 0 ? this.jumpImg : this.birdImg;
         context.drawImage(imageToDraw, this.x, this.y, this.width, this.height);
     }
