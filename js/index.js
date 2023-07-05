@@ -11,7 +11,7 @@ let animationId
 //Start game on s press
 addEventListener('keyup', (event) => {
     // listening to the space press
-    if(event.code === 'Space'){
+    if(event.code === 'Space' && gameState === 'running'){
         bird.jump()
     }
 
