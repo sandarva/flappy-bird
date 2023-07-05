@@ -40,7 +40,28 @@ function displayScore(x, y, score){
 
 // Function to display the gameover screen
 function gameOver(){
+    gameState = 'gameover'
     context.drawImage(gameOverImage, canvas.width / 2 - gameOverImage.width / 2, canvas.height / 2 - 100, gameOverImage.width, gameOverImage.height);
     cancelAnimationFrame(animationId)
     clearInterval(intervalId)
+}
+
+// Function to initialize the game or restart the game
+function init(){
+    cancelAnimationFrame(animationId)
+    clearInterval(intervalId)
+
+    score = 0
+    pipes = []
+    context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+
+    context.drawImage(
+        startImage, 
+        canvas.width / 2 - startImage.width / 2, 
+        canvas.height / 2 - startImage.height / 2, 
+        startImage.width, 
+        startImage.height
+    )
+
+    bird = new Bird(birdXPos, birdYPos, 'yellow')
 }

@@ -27,6 +27,10 @@ canvas{
     margin-bottom: 1rem;
 }
 
+ol{
+    max-width: 300px;
+}
+
 ol li{
     padding: 0.55rem;
 }

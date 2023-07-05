@@ -1,5 +1,4 @@
 const canvas = document.querySelector('#canvas')
-const startText = document.querySelector('h1')
 
 // the height and width of the canvas
 canvas.height = innerHeight - 10
@@ -7,89 +6,52 @@ canvas.width = innerWidth / 3
 
 // context of the canvas
 const context = canvas.getContext('2d')
+let animationId
 
-// The main function that animates the game
-function animate(){
-    animationId = requestAnimationFrame(animate)
-    context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-
-    // move the pipe to the left
-    pipes.forEach((pipe, pipeIndex) => {
-        pipe.update()
-
-        // Check for collision with pipes
-        if (
-            bird.x <= pipe.x + pipe.width &&
-            bird.x + bird.width >= pipe.x &&
-            (bird.y <= pipe.height || bird.y + bird.height >= pipe.height + pipe.gapHeight) 
-        ) {
-            gameOver()
-        }
-
-        // Check if the pipe has passed the bird
-        if (pipe.x + pipe.width < bird.x && !pipe.passed) {
-            score += 1
-            pipe.passed = true
-        }
-        
-        // remove the pipe if it is outside the screen(canvas)
-        if(pipe.x + pipe.width < 0){
-            setTimeout(() => {
-                pipes.splice(pipeIndex, 1)
-            }, 0)
-        }
-    })
-
-    // if bird goes below the screen
-    if(bird.y > canvas.height){
-        gameOver()
-    }
-
-    // if bird goes above the screen
-    if(bird.y + bird.height < 0){
-        gameOver()
-    }
-
-    // show score in the screen
-    displayScore(canvas.width / 2 - 15, canvas.height / 2 - 300, score)
-
-    // repaint the bird
-    // bird.draw()
-    bird.update()
-
-}
-
-// listening to the space press
+//Start game on s press
 addEventListener('keyup', (event) => {
+    // listening to the space press
     if(event.code === 'Space'){
         bird.jump()
     }
+
+    if(event.code === "KeyS" && (gameState === 'initial-game' || gameState === 'gameover')){
+        init()
+        generatePipes()
+        animate()
+        gameState = 'running'
+    }else if(event.code === "KeyS" && gameState === 'paused'){
+        generatePipes()
+        animate()
+        gameState = 'running'
+    }else if(event.code === "KeyS" && gameState === 'running'){
+        return
+    }
+
+    //pause game on p press
+    if(event.code === "KeyP" && gameState !== 'gameover'){
+        gameState = 'paused'
+        cancelAnimationFrame(animationId)
+        clearInterval(intervalId)
+    }
 })
 
-// Main Function Start
+// Makes it responsive
+addEventListener('resize', () => {
+    canvas.height = innerHeight - 10
+    canvas.width = innerWidth / 3
+    init()
+})
 
-// score
-let score = 0
+// Start
 context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-
 // The initial x and y position of the bird
 const birdYPos = canvas.height / 2
 const birdXPos = canvas.width / 8
 
+// score
+let score = 0
 // A new bird at the start of the game
-const bird = new Bird(birdXPos, birdYPos, 'yellow')
-
-//Start game on Click
-addEventListener('keyup', (event) => {
-    if(event.code === "KeyS"){
-        generatePipes()
-        animate()
-    }
-})
-
-addEventListener('resize', () => {
-    canvas.height = innerHeight - 10
-    canvas.width = innerWidth / 3
-})
+let bird = new Bird(birdXPos, birdYPos, 'yellow')
 
 

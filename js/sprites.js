@@ -17,6 +17,7 @@ invertedPipeImage.src = "./assets/pipe-green-inverted.png";
 const gameOverImage = new Image()
 gameOverImage.src = "./assets/gameover.png";
 
+// Numbers image
 const numbers = {
     0: new Image(),
     1: new Image(),
@@ -34,6 +35,7 @@ for(let i = 0; i < 10; i++){
     numbers[i].src = `./assets/${i}.png`
 }
 
+// start image
 const startImage = new Image()
 startImage.src = './assets/message.png'
 startImage.onload = () => {
