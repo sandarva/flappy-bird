@@ -9,7 +9,7 @@ class Pipe{
 
         this.gapHeight = gapHeight
         this.color = color
-        this.speed = 3
+        this.speed = 5
 
         this.passed = false
     }

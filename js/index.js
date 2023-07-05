@@ -51,7 +51,7 @@ function animate(){
     }
 
     // show score in the screen
-    displayScore(15, 45, score)
+    displayScore(canvas.width / 2 - 15, canvas.height / 2 - 300, score)
 
     // repaint the bird
     bird.update()

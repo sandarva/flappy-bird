@@ -16,3 +16,21 @@ invertedPipeImage.src = "./assets/pipe-green-inverted.png";
 //gameover image
 const gameOverImage = new Image()
 gameOverImage.src = "./assets/gameover.png";
+
+const numbers = {
+    0: new Image(),
+    1: new Image(),
+    2: new Image(),
+    3: new Image(),
+    4: new Image(),
+    5: new Image(),
+    6: new Image(),
+    7: new Image(),
+    8: new Image(),
+    9: new Image()
+}
+
+for(let i = 0; i < 10; i++){
+    numbers[i].src = `./assets/${i}.png`
+    console.log(numbers[i].src);
+}
