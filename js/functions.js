@@ -40,10 +40,11 @@ function displayScore(x, y, score){
 
 // Function to display the gameover screen
 function gameOver(){
-    gameState = 'gameover'
-    context.drawImage(gameOverImage, canvas.width / 2 - gameOverImage.width / 2, canvas.height / 2 - 100, gameOverImage.width, gameOverImage.height);
     cancelAnimationFrame(animationId)
     clearInterval(intervalId)
+    pipes = []
+    context.drawImage(gameOverImage, canvas.width / 2 - gameOverImage.width / 2, canvas.height / 2 - 100, gameOverImage.width, gameOverImage.height);
+    gameState = 'gameover'
 }
 
 // Function to initialize the game or restart the game
