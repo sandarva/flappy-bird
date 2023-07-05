@@ -23,7 +23,7 @@ function animate(){
             bird.x + bird.width >= pipe.x &&
             (bird.y <= pipe.height || bird.y + bird.height >= pipe.height + pipe.gapHeight) 
         ) {
-            gameOver(score)
+            gameOver()
         }
 
         // Check if the pipe has passed the bird
@@ -42,22 +42,24 @@ function animate(){
 
     // if bird goes below the screen
     if(bird.y > canvas.height){
-        gameOver(score)
+        gameOver()
     }
 
     // if bird goes above the screen
     if(bird.y + bird.height < 0){
-        gameOver(score)
+        gameOver()
     }
 
     // show score in the screen
     displayScore(canvas.width / 2 - 15, canvas.height / 2 - 300, score)
 
     // repaint the bird
+    // bird.draw()
     bird.update()
 
 }
 
+// listening to the space press
 addEventListener('keyup', (event) => {
     if(event.code === 'Space'){
         bird.jump()
@@ -67,7 +69,6 @@ addEventListener('keyup', (event) => {
 // Main Function Start
 
 // score
-// let gravity = 10
 let score = 0
 context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
@@ -77,14 +78,18 @@ const birdXPos = canvas.width / 8
 
 // A new bird at the start of the game
 const bird = new Bird(birdXPos, birdYPos, 'yellow')
-bird.draw()
 
 //Start game on Click
-addEventListener('click', () => {
-    startText.classList.add("d-none")
-    generatePipes()
-    animate()
-}, {once: true})
+addEventListener('keyup', (event) => {
+    if(event.code === "KeyS"){
+        generatePipes()
+        animate()
+    }
+})
 
+addEventListener('resize', () => {
+    canvas.height = innerHeight - 10
+    canvas.width = innerWidth / 3
+})
 
 

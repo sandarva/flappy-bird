@@ -17,15 +17,16 @@ canvas{
     background-size: cover;
 }
 
-h1{
+.instructions{
+    font-family: sans-serif;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    color: white;
+    padding: 3rem;
 }
 
-.d-none{
-    display: none;
+.instructions h2{
+    margin-bottom: 1rem;
+}
+
+ol li{
+    padding: 0.55rem;
 }

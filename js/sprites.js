@@ -32,5 +32,16 @@ const numbers = {
 
 for(let i = 0; i < 10; i++){
     numbers[i].src = `./assets/${i}.png`
-    console.log(numbers[i].src);
+}
+
+const startImage = new Image()
+startImage.src = './assets/message.png'
+startImage.onload = () => {
+    context.drawImage(
+        startImage, 
+        canvas.width / 2 - startImage.width / 2, 
+        canvas.height / 2 - startImage.height / 2, 
+        startImage.width, 
+        startImage.height
+    )
 }

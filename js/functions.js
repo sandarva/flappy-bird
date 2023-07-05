@@ -11,7 +11,7 @@ function generatePipes(){
     intervalId = setInterval(() => {
         const pipe = new Pipe(canvas.width, 0, 170, 'seagreen')
         pipes.push(pipe)
-    }, 1500)
+    }, 1000)
 }
 
 function splitNum(num) {
@@ -25,12 +25,21 @@ function displayScore(x, y, score){
     }else if(score >= 10 && score < 100){
         const splitNums = splitNum(score)
         context.drawImage(numbers[splitNums[0]], x, y)
-        context.drawImage(numbers[splitNums[1]], x+15, y)
+        context.drawImage(numbers[splitNums[1]], x+20, y)
+    }else{
+        const splitNums = splitNum(score)
+        context.drawImage(numbers[splitNums[0]], x, y)
+        context.drawImage(numbers[splitNums[1]], x+20, y)
+        context.drawImage(numbers[splitNums[2]], x+40, y)
+
+        if(score === 999){
+            gameOver()
+        }
     }
 }
 
 // Function to display the gameover screen
-function gameOver(score){
+function gameOver(){
     context.drawImage(gameOverImage, canvas.width / 2 - gameOverImage.width / 2, canvas.height / 2 - 100, gameOverImage.width, gameOverImage.height);
     cancelAnimationFrame(animationId)
     clearInterval(intervalId)
