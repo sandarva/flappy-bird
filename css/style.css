@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -18,9 +19,16 @@ canvas{
 }
 
 .instructions{
+    text-align: center;
     font-family: sans-serif;
     position: absolute;
     padding: 3rem;
+    background-color: skyblue;
+    min-height: 100vh;
+    color: white;
+    font-weight: 900;
+    font-size: 1.55rem;
+    font-family: 'Common Pixel', sans-serif;                                           
 }
 
 .instructions h2{
