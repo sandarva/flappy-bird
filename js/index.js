@@ -13,6 +13,13 @@ addEventListener('keyup', (event) => {
         gameState = 'running'
     }
 
+    if(event.code === 'Space' && gameState === 'paused'){
+        generatePipes()
+        animate()
+        bird.jump()
+        gameState = 'running'
+    }
+
     if(event.code === "KeyS" && (gameState === 'initial-game' || gameState === 'gameover')){
         init()
         generatePipes()
