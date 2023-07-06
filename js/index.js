@@ -50,7 +50,55 @@ addEventListener('resize', () => {
     canvas.height = canvas2.height = innerHeight - 10
     canvas.width = canvas2.width = innerWidth / 3
     init()
+
+    // for mobile
+    if(innerWidth < 720){
+        canvas.height = canvas2.height = innerHeight - 10
+        canvas.width = canvas2.width = innerWidth
+    
+        addEventListener('click', () => {
+            if(gameState === 'initial-game'){
+                init()
+                generatePipes()
+                animate()
+                gameState = 'running'
+            }
+    
+            if(gameState === 'gameover'){
+                init()
+                gameState = 'initial-game'
+            }
+    
+            if(gameState === 'running'){
+                bird.jump()
+            }
+        })
+    }
 })
+
+// for mobile
+if(innerWidth < 720){
+    canvas.height = canvas2.height = innerHeight - 10
+    canvas.width = canvas2.width = innerWidth
+
+    addEventListener('click', () => {
+        if(gameState === 'initial-game'){
+            init()
+            generatePipes()
+            animate()
+            gameState = 'running'
+        }
+
+        if(gameState === 'gameover'){
+            init()
+            gameState = 'initial-game'
+        }
+
+        if(gameState === 'running'){
+            bird.jump()
+        }
+    })
+}
 
 // Start
 context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
