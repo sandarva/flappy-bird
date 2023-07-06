@@ -40,8 +40,8 @@ addEventListener('keyup', (event) => {
 
 // Makes it responsive
 addEventListener('resize', () => {
-    canvas.height = innerHeight - 10
-    canvas.width = innerWidth / 3
+    canvas.height = canvas2.height = innerHeight - 10
+    canvas.width = canvas2.width = innerWidth / 3
     init()
 })
 
@@ -65,5 +65,6 @@ if(localStorage.getItem('highScore')){
 
 const highScoreContainer = document.querySelector('.highscore')
 highScoreContainer.textContent = `Highscore = ${highScore}`
+
 
 
