@@ -9,14 +9,14 @@ const context = canvas.getContext('2d')
 
 // pipes with gaps
 class Pipe{
-    constructor(x, y, gapHeight, color){
+    constructor(x, y, color){
         this.x = x
         this.y = y
 
         this.width = 100
         this.height = randomNumber(200, 350)
 
-        this.gapHeight = gapHeight
+        this.gapHeight = 170
         this.color = color
         this.speed = 5
 

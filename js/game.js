@@ -27,12 +27,18 @@ function animate(){
         }
 
         // increase the level according to the score
-        if(score >= 10){
+        if(score >= 10 && score < 20){
             pipe.speed = 9
-        }else if(score >= 20){
-            pipe.speed = 11
-        }else if(score >= 40){
-            pipe.speed = 14
+        }
+        
+        if(score >= 20 && score < 40){
+            pipe.speed = 12
+            pipe.gapHeight = 150
+        }
+        
+        if(score >= 40){
+            pipe.speed = 15
+            pipe.gapHeight = 130
         }
         
         // remove the pipe if it is outside the screen(canvas)

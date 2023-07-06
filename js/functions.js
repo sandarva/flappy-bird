@@ -9,7 +9,7 @@ let intervalId
 let pipes = []
 function generatePipes(){
     intervalId = setInterval(() => {
-        const pipe = new Pipe(canvas.width, 0, 170, 'seagreen')
+        const pipe = new Pipe(canvas.width, 0, 'seagreen')
         pipes.push(pipe)
     }, 1000)
 }
