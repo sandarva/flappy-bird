@@ -14,6 +14,7 @@ Press 'Space' or 'S' to start the game and 'Space' to make flappy bird fly and m
 - Sound Effects
 - User Interface
 - Pause and Restart
+- Highscore
 
 ### Screenshots
 
