@@ -1,3 +1,4 @@
+let animationId
 // The main function that animates the game
 function animate(){
     animationId = requestAnimationFrame(animate)

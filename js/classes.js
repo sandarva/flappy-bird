@@ -1,3 +1,12 @@
+const canvas = document.querySelector('#canvas')
+
+// the height and width of the canvas
+canvas.height = innerHeight - 10
+canvas.width = innerWidth / 3
+
+// context of the canvas
+const context = canvas.getContext('2d')
+
 // pipes with gaps
 class Pipe{
     constructor(x, y, gapHeight, color){

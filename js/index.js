@@ -1,13 +1,3 @@
-const canvas = document.querySelector('#canvas')
-
-// the height and width of the canvas
-canvas.height = innerHeight - 10
-canvas.width = innerWidth / 3
-
-// context of the canvas
-const context = canvas.getContext('2d')
-let animationId
-
 //Start game on s press
 addEventListener('keyup', (event) => {
     // listening to the space press
@@ -60,7 +50,6 @@ if(localStorage.getItem('highScore')){
     localStorage.setItem('highScore', 0)
     highScore = localStorage.getItem('highScore')
 }
-
 
 const highScoreContainer = document.querySelector('.highscore')
 highScoreContainer.textContent = `Highscore = ${highScore}`
