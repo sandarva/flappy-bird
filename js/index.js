@@ -81,7 +81,8 @@ if(innerWidth < 720){
     canvas.height = canvas2.height = innerHeight - 10
     canvas.width = canvas2.width = innerWidth
 
-    addEventListener('touchend', () => {
+    addEventListener('touchend', (event) => {
+        event.preventDefault()
         if(gameState === 'initial-game'){
             init()
             generatePipes()
