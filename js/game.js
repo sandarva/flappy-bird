@@ -25,6 +25,15 @@ function animate(){
             scoreAudio.play()
             scoreAudio.currentTime = 0
         }
+
+        // increase the level according to the score
+        if(score >= 10){
+            pipe.speed = 9
+        }else if(score >= 20){
+            pipe.speed = 11
+        }else if(score >= 40){
+            pipe.speed = 14
+        }
         
         // remove the pipe if it is outside the screen(canvas)
         if(pipe.x + pipe.width < 0){

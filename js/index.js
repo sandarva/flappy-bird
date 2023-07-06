@@ -22,7 +22,11 @@ addEventListener('keyup', (event) => {
         generatePipes()
         animate()
         gameState = 'running'
-    }else if(event.code === "KeyS" && gameState === 'running'){
+    }else if(event.code === 'KeyR' && gameState === 'gameover'){
+        init()
+        gameState = 'initial-game'
+    }
+    else if(event.code === "KeyS" && gameState === 'running'){
         return
     }
 

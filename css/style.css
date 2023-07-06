@@ -24,11 +24,12 @@ canvas{
     min-height: 100vh;
     color: white;
     font-size: 1.55rem;
-    font-family: 'Common Pixel', sans-serif;                                           
+                                              
 }
 
 .instructions h2{
     margin-bottom: 1rem;
+    font-family: 'Common Pixel', sans-serif; 
 }
 
 ol{
@@ -42,6 +43,7 @@ ol li{
 .highscore{
     margin-top: 5rem;
     color: #1f1f1f;
+    font-family: 'Common Pixel', sans-serif; 
 }
 
 @media (max-width: 720px) {
