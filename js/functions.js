@@ -40,17 +40,15 @@ function displayScore(x, y, score){
 
 // Function to display the gameover screen
 function gameOver(){
+    context.drawImage(gameOverImage, canvas.width / 2 - gameOverImage.width / 2, canvas.height / 2 - 100, gameOverImage.width, gameOverImage.height);
     cancelAnimationFrame(animationId)
     clearInterval(intervalId)
     if(score > highScore){
         highScore = score
         localStorage.setItem('highScore', highScore)
         highScoreContainer.textContent = `Highscore = ${highScore}`
-        console.log(highScore);
     }
-
     pipes = []
-    context.drawImage(gameOverImage, canvas.width / 2 - gameOverImage.width / 2, canvas.height / 2 - 100, gameOverImage.width, gameOverImage.height);
     gameState = 'gameover'
 }
 

@@ -13,8 +13,6 @@ canvas{
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    background-image: url('../assets/background-day.png');
-    background-size: cover;
 }
 
 .instructions{
@@ -44,4 +42,10 @@ ol li{
 .highscore{
     margin-top: 5rem;
     color: #1f1f1f;
+}
+
+@media (max-width: 720px) {
+    .instructions {
+        display: none;
+    }
 }
