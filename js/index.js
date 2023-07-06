@@ -5,6 +5,14 @@ addEventListener('keyup', (event) => {
         bird.jump()
     }
 
+    if(event.code === 'Space' && gameState === 'initial-game'){
+        init()
+        generatePipes()
+        animate()
+        bird.jump()
+        gameState = 'running'
+    }
+
     if(event.code === "KeyS" && (gameState === 'initial-game' || gameState === 'gameover')){
         init()
         generatePipes()

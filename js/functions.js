@@ -48,7 +48,6 @@ function gameOver(){
         localStorage.setItem('highScore', highScore)
         highScoreContainer.textContent = `Highscore = ${highScore}`
     }
-    pipes = []
     gameState = 'gameover'
 }
 
