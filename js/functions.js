@@ -42,15 +42,30 @@ function displayScore(x, y, score){
 function gameOver(){
     cancelAnimationFrame(animationId)
     clearInterval(intervalId)
+    if(score > highScore){
+        highScore = score
+        localStorage.setItem('highScore', highScore)
+        highScoreContainer.textContent = `Highscore = ${highScore}`
+        console.log(highScore);
+    }
+
     pipes = []
     context.drawImage(gameOverImage, canvas.width / 2 - gameOverImage.width / 2, canvas.height / 2 - 100, gameOverImage.width, gameOverImage.height);
     gameState = 'gameover'
 }
 
+let highScore
 // Function to initialize the game or restart the game
 function init(){
     cancelAnimationFrame(animationId)
     clearInterval(intervalId)
+
+    if(localStorage.getItem('highScore')){
+        highScore = localStorage.getItem('highScore')
+    }else{
+        localStorage.setItem('highScore', 0)
+        highScore = localStorage.getItem('highScore')
+    }
 
     score = 0
     pipes = []

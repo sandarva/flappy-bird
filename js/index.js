@@ -54,4 +54,15 @@ let score = 0
 // A new bird at the start of the game
 let bird = new Bird(birdXPos, birdYPos, 'yellow')
 
+if(localStorage.getItem('highScore')){
+    highScore = localStorage.getItem('highScore')
+}else{
+    localStorage.setItem('highScore', 0)
+    highScore = localStorage.getItem('highScore')
+}
+
+
+const highScoreContainer = document.querySelector('.highscore')
+highScoreContainer.textContent = `Highscore = ${highScore}`
+
 
